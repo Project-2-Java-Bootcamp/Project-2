@@ -34,9 +34,13 @@ function Dance() {
     </div>
     <div>
     </div>
-    <img height="75px" src={gold}/>
-    <h2 className="h2-dance">تقديمات العشاء </h2>
-    <img height="75px" src={gold}/>
+    <br/>
+    <div className="dance-header">
+                <img height="70px" src={gold}/>
+                <h2 className="h2-dance">تقديمات العشاء</h2>
+                <img height="70px" src={gold}/>
+          </div>
+    
     </div>
   );
 }

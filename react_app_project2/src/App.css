@@ -471,6 +471,45 @@ ul {
   background-position-y: center
 }
 
+.container {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.image {
+  display: block;
+  width: 350px;
+  height: 280px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 350px;
+  height: 280px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #fcfcfc;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.secandImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 321px;
+  height: 280px;
+}
 .items-admin{
   
   margin-top: 20px;
@@ -478,4 +517,18 @@ ul {
   grid-template-columns: auto auto ;
   gap: 15px;
   justify-content: center;
+}
+.img-icon-search{
+  margin-top: 20px;
+  width: 30px;
+  height: 40px;
+}
+.search {
+  display: flex;
+  gap: 10px;
+}
+.imageService{
+  display: block;
+  height:100%;
+  width: 100%;
 }

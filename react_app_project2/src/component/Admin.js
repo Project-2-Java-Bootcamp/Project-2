@@ -119,7 +119,7 @@ function Admin() {
       {state.items.map((e, i) => {
         return (
           <div>
-            <div className="card " style={{ width: "20.9rem" }}>
+            <div className="card " style={{ width: "23.9rem",marginLeft:"550px" }}>
               <img style={{ height: "10.9rem" }} src={e.img1} />
 
               <div className="type">

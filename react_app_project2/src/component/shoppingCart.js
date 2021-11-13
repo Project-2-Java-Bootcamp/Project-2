@@ -1,17 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useState,useEffect } from 'react';
-import {deleteCart,getOrder, getprice} from "../reducers/items/actions"
+import {deleteCart,getOrder, getprice,getTotal} from "../reducers/items/actions"
 import Button from 'react-bootstrap/Button';
 function ShoppingCart() {
   const [total1,setTotal1] = useState(0)
   const [select,setSelect] = useState()
   const navigate = useNavigate();
   const state = useSelector((state) => {
+    console.log(state)
     return {
       cart: state.ItemsReducer.Cart,
       order:state.ItemsReducer.Order,
-      total:state.ItemsReducer.total
+      total:state.ItemsReducer.Total
     };
   });
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function ShoppingCart() {
     //let selectV = total + parseInt(input2)
      setTotal1(total1+parseInt(input2))
      console.log(state.order);
+     console.log(state.total);
   }
   function InputChangeC(e){
     
@@ -60,12 +62,16 @@ function ShoppingCart() {
  }
  function order(y){
   const action = getOrder(y);
-  state.total=total1
+  const action1 = getTotal(total1)
+  //state.total = total1
+  
+  console.log(total1);
   console.log(state.order);
   console.log(state.cart);
   
   dispatch(action)
-  return navigate("/Orders")
+  dispatch(action1)
+   navigate("/Orders")
  }
  function remove  (x,t) {
   //setCounter(counter + 1);
@@ -99,7 +105,7 @@ function ShoppingCart() {
         <div className="row">
             <div className="col-lg-10 offset-lg-1">
                 <div className="cart_container">
-                    <div className="cart_title">Shopping Cart</div>
+                    <div className="cart_title">سله التسوق</div>
                     {state.cart.map((element, index) => {
                       
           
@@ -111,20 +117,20 @@ function ShoppingCart() {
                                 <div className="cart_item_image"><img src={element.img1} alt=""/></div>
                                 <div className="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                     <div className="cart_item_name cart_info_col">
-                                        <div className="cart_item_title">Name</div>
+                                        <div className="cart_item_title">أسم المنتج</div>
                                         <div className="cart_item_text">{element.name}</div>
                                     </div>
                                     <div className="cart_item_quantity cart_info_col">
-                                        <div className="cart_item_title">Remove from Cart</div>
+                                        <div className="cart_item_title">حذف من السله </div>
                                         <div className="cart_item_text"><Button  variant="danger" onClick={()=>remove(element,total)}>X</Button ></div>
                                         
                                     </div>
                                     <div className="cart_item_price cart_info_col">
-                                        <div className="cart_item_title">Price</div>
+                                        <div className="cart_item_title">السعر</div>
                                         <div className="cart_item_text">{element.price}</div>
                                     </div>
                                     <div className="cart_item_total cart_info_col">
-                                        <div className="cart_item_title">Total</div>
+                                        <div className="cart_item_title">المجموع</div>
                                         <div className="cart_item_text">{total=total+element.price}</div>
                                         
                                     </div>
@@ -136,8 +142,8 @@ function ShoppingCart() {
                     
                     </div>
                     );
-      
-                    })}
+      
+                    })}
                   <div className="order_total">
                         <div className="order_total_content text-md-right">
                             <div className="order_total_title"><input className="input-coupons" type="text" placeholder="discount coupons" onChange={InputChangeC}/></div>
@@ -161,7 +167,7 @@ function ShoppingCart() {
                         
                         <div className="order_total">
                         <div className="order_total_content text-md-right">
-                            <div className="order_total_title">Order Total:</div>
+                            <div className="order_total_title">مجموع الطلب :</div>
                             <div className="order_total_amount">{total1}</div>
                         </div>
                         
@@ -177,7 +183,7 @@ function ShoppingCart() {
     <br/>
     <br/>
     <br/>
-    <div className="cart_buttons"> <button type="button" className="button cart_button_checkout" onClick={()=>order(state.cart)}>Confirm Order</button> </div>
+    <div className="cart_buttons"> <button type="button" className="button cart_button_checkout" onClick={()=>order(state.cart)}>أكمال الطلب</button> </div>
 </div>
         
 

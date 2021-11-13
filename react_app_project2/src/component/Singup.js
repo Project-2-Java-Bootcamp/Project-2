@@ -91,6 +91,7 @@ function Singup() {
 
           <Button
             className="Submit"
+            style={{ backgroundColor: "#D7AA67", borderColor: "#D7AA67" }}
             type="submit"
             onClick={(e) => SubmitSingup(e)}
           >

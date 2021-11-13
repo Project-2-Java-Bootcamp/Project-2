@@ -87,3 +87,11 @@ export const updetItems = (data) => {
       payload:items,
     }
   }
+  export const getTotal = (items)=> {
+
+    return{
+      type:"SET_TOTAL",
+      payload:items,
+    }
+  }
+

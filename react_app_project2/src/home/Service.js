@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Carousel, Button } from "react-bootstrap";
 import bag from "../image/bag.png";
 import hart from "../image/heart.png";
-import "../style.css";
+import "../App.css";
 import { useParams, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { Favorite,Cart } from "../reducers/items/actions";
@@ -29,14 +28,14 @@ function Service() {
               <Carousel>
                 <Carousel.Item>
                   <img
-                    className="d-block w-100 h-100 "
+                    className="imageService "
                     src={element.img1}
                     alt={element.name}
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
-                    className="d-block w-100"
+                    className="imageService"
                     src={element.img2}
                     alt={element.name}
                   />
@@ -44,6 +43,10 @@ function Service() {
               </Carousel>
               <div className="type">
                 <h4>{element.name} </h4>
+              </div>
+              <div>
+                <h4>{element.price} SR </h4>
+                <hr/>
               </div>
               <div className="iconGrid">
                 <img className="iconSize" src={hart} onClick={()=>dispatch(Favorite(element))} />

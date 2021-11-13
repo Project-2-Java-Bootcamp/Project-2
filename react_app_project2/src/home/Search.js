@@ -29,8 +29,8 @@ function Search() {
           if (state.search == "") {
             return;
           } else if (
-            ele.name.toLowerCase().includes(state.search.toLowerCase()) ||
-            ele.type.toLowerCase().includes(state.search.toLowerCase())
+            ele.name.includes(state.search) ||
+            ele.type.includes(state.search)
           ) {
             return ele;
           }
