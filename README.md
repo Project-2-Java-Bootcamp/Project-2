@@ -1,7 +1,7 @@
 # Project-2-Java-Bootcamp
 
 ## Description
-design and develop a React.js App with Redux Library
+Design and Develop a React.js App with Redux Library
 
 ## Wireframe
 
